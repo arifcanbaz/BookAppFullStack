@@ -44,7 +44,7 @@ module.exports = {
     },
 
     delete: async (req,res)=> {
-        const data = await Book.destroy(where: {id:req.parms.id})
+        const data = await Book.destroy({where : {id:req.parms.id}})
 
         if(data>0){
             res.sendStatus(204)

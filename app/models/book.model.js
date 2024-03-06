@@ -5,7 +5,14 @@
 /* -------------------------------------------------------------------------- */
 
 const {Sequelize,DataTypes}=require('sequelize')
-const sequelize=new Sequelize('sqlite: ./db.sqlite3')
+const sequelize=new Sequelize('sqlite:./db.sqlite3')
+
+
+// Syncronization:
+// Model bilgilerini db'ye uygula:
+// sequelize.sync() // CREATE TABLE
+// sequelize.sync({ force: true }) // DROP TABLE & CREATE TABLE
+// sequelize.sync({ alter: true }) // TO BACKUP & DROP TABLE & CREATE TABLE & FROM BACKUP
 
 const Book = sequelize.define('books',{
  title: {
@@ -19,7 +26,7 @@ const Book = sequelize.define('books',{
 
  },
  ISBN:{
-    type:DataTypes.INTEGER,
+    type:DataTypes.STRING,
     allowNull:false
     
  },
